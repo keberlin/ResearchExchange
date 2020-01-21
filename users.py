@@ -31,5 +31,5 @@ class Users:
                 return user
         return None
 
-    def delete_user(self,user):
+    def delete_user(self, user):
         self.users.remove(user)

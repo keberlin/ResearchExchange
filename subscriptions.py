@@ -24,6 +24,6 @@ class Subscriptions:
                 ret.append(subs)
         return ret
 
-    def delete_subscriptions(self,subs):
+    def delete_subscriptions(self, subs):
         for sub in subs:
             self.subscriptions.remove(sub)

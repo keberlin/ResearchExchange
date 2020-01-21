@@ -34,3 +34,24 @@ and if no user specified a list of all users details like so:
 {'users': ['email':email, 'id':id, 'titles': [subscriptions]], 'timestamp': timestamp}
 
 Ie the timestamp will only be listed the once for each request.
+
+
+Examples using curl:
+
+Add a subscription with a fresh user:
+  curl -X POST -d '{"email":"keith@gmail.com","title":"Terminator"}' -H "Content-Type: application/json" http://127.0.0.1:81/request
+
+Add a subscription with an existing user:
+  curl -X POST -d '{"email":"keith@gmail.com","title":"Harry Potter"}' -H "Content-Type: application/json" http://127.0.0.1:81/request
+
+Add a subscription with another fresh user:
+  curl -X POST -d '{"email":"timmy@gmail.com","title":"War and Peace"}' -H "Content-Type: application/json" http://127.0.0.1:81/request
+
+List all active users and their subscriptions:
+  curl -X GET http://127.0.0.1:81/request
+
+Remove a user and all their subscriptions:
+  curl -X DELETE http://127.0.0.1:81/request?id=1
+
+List all remaining active users and their subscriptions:
+  curl -X GET http://127.0.0.1:81/request
