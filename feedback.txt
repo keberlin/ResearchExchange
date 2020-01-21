@@ -1,0 +1,36 @@
+Application:
+
+- The application has been written as a standard Flask app with local IP address: http://127.0.0.1:81
+
+- To run the application use: python app.py
+
+- http://127.0.0.1:81/request will be the main access point to the engine. It can use either GET, POST or DELETE protocols
+
+  GET with an id parameter, eg /request/id=1 - returns a list of subscriptions for a single user
+  GET with no parameters, eg /request - returns a list of subscriptions for all users
+
+  POST with json data email & title - registers a book subscription for a user
+
+  DELETE with an id parameter - removes a user along with all their subscriptions
+
+
+Python requirements(.txt):
+
+- The application depends on 'Flask' pip install package
+
+
+Assumptions:
+
+It's been assumed that the system has a preset list of books within its database upon startup. And that each POST request
+is effectively setting up a book subscription. So this implies that there are tables for a list of books, a list of users
+(subscribers) and a list of subscriptions.
+
+So the GET request will return the following if a user is specified:
+
+{'email':email, 'id':id, 'titles': [subscriptions], 'timestamp': timestamp}
+
+and if no user specified a list of all users details like so:
+
+{'users': ['email':email, 'id':id, 'titles': [subscriptions]], 'timestamp': timestamp}
+
+Ie the timestamp will only be listed the once for each request.
