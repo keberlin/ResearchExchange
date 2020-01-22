@@ -19,6 +19,13 @@ Python requirements(.txt):
 - The application depends on 'Flask' pip install package
 
 
+Architecture:
+
+- For a commercial system all the data (at least users and subscriptions) would need to be stored in a database. The
+  code as it stands atm will not handle multi-threading situations nor a reset of the running of the application as all
+  the data is stored in memory.
+
+
 Assumptions:
 
 It's been assumed that the system has a preset list of books within its database upon startup. And that each POST request
